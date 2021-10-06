@@ -1,6 +1,6 @@
-# Ackermann Steering Robot Controller
-[![Build Status](https://travis-ci.org/dpiet/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/dpiet/cpp-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/dpiet/cpp-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/dpiet/cpp-boilerplate?branch=master)
+# Ackermann Steering Robot Controller   
+[![Build Status](https://app.travis-ci.com/PrannoyNamala/Ackermann-Steering-Robot-Controller.svg?branch=main)](https://app.travis-ci.com/PrannoyNamala/Ackermann-Steering-Robot-Controller)
+[![Coverage Status](https://coveralls.io/repos/github/PrannoyNamala/Ackermann-Steering-Robot-Controller/badge.svg?branch=main)](https://coveralls.io/github/PrannoyNamala/Ackermann-Steering-Robot-Controller?branch=main)
 [![License: UMD](https://img.shields.io/badge/License-UMD-blue.svg)](https://github.com/umdjs/umd/blob/master/LICENSE.md)
 ---
 
