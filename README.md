@@ -24,6 +24,11 @@ This project will be completed using AIP with the involvement of 2 programmers u
 
 
 ## Important Links
+
+[Proposal Phase-0](https://drive.google.com/file/d/1umYMgm8mL1ALpWycH2YrRFYiQv6a0TN-/view?usp=sharing)
+
+[Quad Chart Phase-0](https://docs.google.com/presentation/d/1gxMpzM0_3GOJ_yXR0YypWVg-9wJvwtRXy6T7MfbltXY/edit?usp=sharing)
+
 [UML Diagram](https://drive.google.com/file/d/1Zu3fTrS95gYpkMdT5xp2CJ424eM1xON7/view?usp=sharing)
 
 [Google Doc Link forDesign and Planning notes](https://docs.google.com/document/d/17IL55ZwxBDhujGnLBym4Dkk1ct6glk5DNWoQ6naqwEU/edit?usp=sharing)
