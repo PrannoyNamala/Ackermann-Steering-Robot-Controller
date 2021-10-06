@@ -33,7 +33,7 @@ This project will be completed using AIP with the involvement of 2 programmers u
 
 [Google Doc Link forDesign and Planning notes](https://docs.google.com/document/d/17IL55ZwxBDhujGnLBym4Dkk1ct6glk5DNWoQ6naqwEU/edit?usp=sharing)
 
-[ Youtube link to the Proposal](--------)
+[ Youtube link to the Proposal](https://youtu.be/cgePebQyXTI)
 
 ## Standard install via command-line
 ```
