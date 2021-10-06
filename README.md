@@ -6,7 +6,7 @@
 
 ## Overview
 
-FThe  aim  of  the  project  is  to  implement  an  Ackermann Steering Controller for the newly developed rover by Acme Robotics. We have chosen to implement Ackermann steering for many of its advantages. The most important one is that it does not slip in higher velocities, this is achieved by steering the  inside  wheel at a greater angle than the outside wheel.This is very crucial as it ensures longevity of the the wheels and that the rover is stable and controllable.
+The  aim  of  the  project  is  to  implement  an  Ackermann Steering Controller for the newly developed rover by Acme Robotics. We have chosen to implement Ackermann steering for many of its advantages. The most important one is that it does not slip in higher velocities, this is achieved by steering the  inside  wheel at a greater angle than the outside wheel.This is very crucial as it ensures longevity of the the wheels and that the rover is stable and controllable.
 
 The following assumptions are made while developing this project :-
 
