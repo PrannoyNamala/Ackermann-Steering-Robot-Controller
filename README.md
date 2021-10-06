@@ -27,7 +27,7 @@ This project will be completed using AIP with the involvement of 2 programmers u
 
 [Proposal Phase-0](https://drive.google.com/file/d/1umYMgm8mL1ALpWycH2YrRFYiQv6a0TN-/view?usp=sharing)
 
-[Quad Chart Phase-0](https://docs.google.com/presentation/d/1gxMpzM0_3GOJ_yXR0YypWVg-9wJvwtRXy6T7MfbltXY/edit?usp=sharing)
+[Quad Chart Phase-0](https://drive.google.com/file/d/1-h-sLWbmNeX7z31qwRXdcSlXcgGUWfXG/view?usp=sharing)
 
 [UML Diagram](https://drive.google.com/file/d/1Zu3fTrS95gYpkMdT5xp2CJ424eM1xON7/view?usp=sharing)
 
