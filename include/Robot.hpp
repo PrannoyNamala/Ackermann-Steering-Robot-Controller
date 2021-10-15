@@ -1,24 +1,23 @@
 /**
- * @file robot.hpp
+ * @file Robot.hpp
  * @author Rishabh Mukund (rmukund@umd.edu)
  * @author Prannoy Namala (pnamala@umd.edu)
- * @brief Header file for Robot
+ * @brief Header file for Robot Class
  * @version 0.1
  * @date 10-15-2021
  *
- * Copyright (c) 2021 Group MT14
+ * Copyright (c) 2021 Group 808X-MT14
  *
  */
 
 #include <iostream>
-#include <stdexcept>
 
-enum double pos[3];
+typedef double pos[3];
 
-class Robot {
+class Robot{
  public:
     /**
-     * @brief Construct a new robot object
+     * @brief Construct a new Robot object
      *
      * @param max_acc (double) - Maximum Acceleration
      * @param wheel_base (double) - Wheel base
