@@ -53,7 +53,7 @@ class Robot{
     *
     * @return pos
     */
-    pos getCurrPos();
+    pos* getCurrPos();
 
     /**
     * @brief Set the curr_pos parameter
@@ -81,7 +81,7 @@ class Robot{
     *
     * @return pos
     */
-    pos getFinalPos();
+    pos* getFinalPos();
 
     /**
     * @brief Set the final_pos parameter

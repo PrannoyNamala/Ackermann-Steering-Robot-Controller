@@ -20,22 +20,21 @@
 /**
 * @brief Constructs the AckermannModel object with user defined values
 */
-AckremannModel::AckremannModel(Robot r, pos target)
-	: r_(r),
-	  target_(target){
+AckermannModel::AckermannModel(Robot r)
+	: r_(r),{
 	std::cout << "AckermannModel initialized" << std::endl;
 }
 
 /**
 * @brief Computing the angle to turn the wheels
 */
-void AckremannModel::ComputeWheelAngles() {
+void AckermannModel::ComputeWheelAngles() {
 	return void;
 }
 
 /**
 * @brief Computing the velocities for each driving wheel
 */
-void AckremannModel::ComputeWheelVelocities() {
+void AckermannModel::ComputeWheelVelocities() {
 	return void;
 }

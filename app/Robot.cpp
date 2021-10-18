@@ -52,7 +52,7 @@ double Robot::getTrackWidth() {
 /**
 * @brief Get the curr_pos parameter
 */
-pos Robot::getCurrPos() {
+pos* Robot::getCurrPos() {
 	return curr_pos_;
 }
 
@@ -66,7 +66,7 @@ void Robot::setCurrPos(pos position) {
 /**
 * @brief Get the final_pos parameter
 */
-pos Robot::getFinalPos() {
+pos* Robot::getFinalPos() {
 	return final_pos_;
 }
 

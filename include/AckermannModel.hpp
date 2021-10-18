@@ -15,9 +15,8 @@
 #include <iostream>
 #include <Robot.hpp>
 
-typedef double pos[3];
 
-class AckremannModel {
+class AckermannModel {
  public:
   double radius_icc_{}, left_wheel_angle_{}, right_wheel_angle_{};
   double left_wheel_vel_{}, right_wheel_vel_{};
@@ -28,7 +27,7 @@ class AckremannModel {
      * @param r (Robot) - object of Robot class
      * @param target (pos) - target coordinates (x,y,th)
      */
-  AckremannModel(Robot r, pos target);
+  AckermannModel(Robot r);
 
   /**
    * @brief Computing the angle to turn the wheels
