@@ -32,63 +32,63 @@ class Robot{
     *
     * @return double
     */
-    double getMaxAcc();
+    double GetMaxAcc();
 
     /**
     * @brief Get the wheel_base parameter
     *
     * @return double
     */
-    double getWheelBase();
+    double GetWheelBase();
 
     /**
     * @brief Get the track_width parameter
     *
     * @return double
     */
-    double getTrackWidth();
+    double GetTrackWidth();
 
     /**
     * @brief Get the curr_pos parameter
     *
     * @return pos
     */
-    pos getCurrPos();
+    pos GetCurrPos();
 
     /**
     * @brief Set the curr_pos parameter
     *
     * @param curr_pos (pos) - Current Position (x,y,th)
     */
-    void setCurrPos(pos curr_pos);
+    void SetCurrPos(pos curr_pos);
 
     /**
     * @brief Get the curr_vel parameter
     *
     * @return double
     */
-    double getCurrVel();
+    double GetCurrVel();
 
     /**
     * @brief Set the curr_vel parameter
     *
     * @param curr_vel (double) - Current Velocity
     */
-    void setCurrVel(double velocity);
+    void SetCurrVel(double velocity);
 
     /**
     * @brief Get the final_pos parameter
     *
     * @return pos
     */
-    pos getFinalPos();
+    pos GetFinalPos();
 
     /**
     * @brief Set the final_pos parameter
     *
     * @param final_pos (pos) - Final Position (x,y,th)
     */
-    void setFinalPos(pos final_pos);
+    void SetFinalPos(pos final_pos);
 
  private:
     double max_acc_, wheel_base_, track_width_;
