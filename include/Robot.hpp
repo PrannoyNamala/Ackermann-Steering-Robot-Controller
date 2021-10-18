@@ -8,11 +8,12 @@
  *
  * Copyright (c) 2021 Group 808X-MT14
  *
+ * Licensed under the MIT License (the "License")
+ *
  */
-
+#pragma once
 #include <iostream>
-
-typedef double pos[3];
+#include <array>
 
 class Robot{
  public:
@@ -51,14 +52,14 @@ class Robot{
     *
     * @return pos
     */
-    pos getCurrPos();
+    std::array<double, 3> getCurrPos();
 
     /**
     * @brief Set the curr_pos parameter
     *
     * @param curr_pos (pos) - Current Position (x,y,th)
     */
-    void setCurrPos(pos curr_pos);
+    void setCurrPos(std::array<double, 3> curr_pos);
 
     /**
     * @brief Get the curr_vel parameter
@@ -72,26 +73,24 @@ class Robot{
     *
     * @param curr_vel (double) - Current Velocity
     */
-    void setCurrVel();
+    void setCurrVel(double velocity);
 
     /**
     * @brief Get the final_pos parameter
     *
     * @return pos
     */
-    pos getFinalPos();
+    std::array<double, 3> getFinalPos();
 
     /**
     * @brief Set the final_pos parameter
     *
     * @param final_pos (pos) - Final Position (x,y,th)
     */
-    void setFinalPos(pos final_pos);
+    void setFinalPos(std::array<double, 3> final_pos);
 
  private:
-    double _max_acc, _wheel_base, _track_width;
-    double _curr_vel{};
-    pos final_pos = {0,0,0}, curr_pos = {0,0,0};
+    double max_acc_, wheel_base_, track_width_;
+    double curr_vel_{};
+    std::array<double, 3> final_pos_ = {0, 0, 0}, curr_pos_ = {0, 0, 0};
 };
-
-

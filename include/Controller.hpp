@@ -8,8 +8,10 @@
  *
  * Copyright (c) 2021 Group 808X-MT14
  *
+ * Licensed under the MIT License (the "License")
+ *
  */
-
+#pragma once
 #include <iostream>
 
 class Controller {
@@ -21,9 +23,9 @@ class Controller {
      * @param Ki (double) - Integral constant
      * @param Kd (double) - Derivative constant
      * @param dt (double) - time
+     * @param threshold (double) - allowed error
      */
-    Controller(double Kp, double Ki, double Kd, double dt);
-    
+    Controller(double Kp, double Ki, double Kd, double dt, double threshold);
     /**
      * @brief Calculates the error integral
      * 
@@ -31,8 +33,7 @@ class Controller {
      * 
      * @return double
      */
-    double calculateErrorIntegral(double error);
-    
+    double CalculateErrorIntegral(double error);
     /**
      * @brief Calculates the error derivative
      * 
@@ -40,8 +41,7 @@ class Controller {
      *
      * @return double
      */
-    double calculateErrorDerivative(double error);
-    
+    double CalculateErrorDerivative(double error);
     /**
      * @brief calculates the velocity output
      * 
@@ -50,37 +50,39 @@ class Controller {
      *
      * @return double
      */
-    double computeOutput(double initial_state, double final_state);
-    
+    double ComputeOutput(double initial_state, double final_state);
     /**
-     * @brief Get the Kp parameter
+     * @brief Get the kp parameter
      * 
      * @return double 
      */
     double getKp();
-    
     /**
-     * @brief Get the Kd parameter
+     * @brief Get the kd parameter
      * 
      * @return double 
      */
     double getKd();
-    
     /**
-     * @brief Get the Ki parameter
+     * @brief Get the ki parameter
      * 
      * @return double 
      */
     double getKi();
-    
     /**
      * @brief Get the dt parameter
      * 
      * @return double 
      */
     double getDt();
+    /**
+     * @brief Get the threshold parameter
+     *
+     * @return double
+     */
+    double getThreshold();
 
  private:
-    double _Kp, _Ki, _Kd, _dt;
-    double _previous_error {}, _integral_sum{};
+    double kp_, ki_, kd_, dt_, threshold_;
+    double previous_error_ {}, integral_sum_{};
 };

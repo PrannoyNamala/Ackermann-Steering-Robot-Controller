@@ -10,8 +10,10 @@ option(COVERAGE "Generate Coverage Data" OFF)
 if (COVERAGE)
     include(CodeCoverage)
     set(LCOV_REMOVE_EXTRA "'vendor/*'")
+    set(LCOV_REMOVE_EXTRA "app/main.cpp")
     setup_target_for_coverage(code_coverage test/cpp-test coverage)
-    set(COVERAGE_SRCS app/main.cpp app/AnalogSensor.cpp include/AnalogSensor.hpp)
+    set(COVERAGE_SRCS app/main.cpp app/Robot.cpp include/Robot.hpp app/AckermannModel.cpp 
+    include/AckermannModel.hpp app/Controller.cpp include/Controller.hpp)
 
     SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
     SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")

@@ -8,17 +8,18 @@
  *
  * Copyright (c) 2021 Group 808X-MT14
  *
+ * Licensed under the MIT License (the "License")
+ *
  */
-
+#pragma once
 #include <iostream>
 #include <Robot.hpp>
 
-typedef double pos[3];
 
-class AckremannModel {
+class AckermannModel {
  public:
-  double _radius_icc{}, _left_wheel_angle{}, _right_wheel_angle{};
-  double _left_wheel_vel{}, _right_wheel_vel{};
+  double radius_icc_{}, left_wheel_angle_{}, right_wheel_angle_{};
+  double left_wheel_vel_{}, right_wheel_vel_{};
 
     /**
      * @brief Construct a new AckremannModel object
@@ -26,7 +27,7 @@ class AckremannModel {
      * @param r (Robot) - object of Robot class
      * @param target (pos) - target coordinates (x,y,th)
      */
-  AckremannModel(Robot r, pos target);
+  explicit AckermannModel(Robot r);
 
   /**
    * @brief Computing the angle to turn the wheels
@@ -36,7 +37,7 @@ class AckremannModel {
    * @param wheel_base (double) - wheel base defined in the Robot class
    * @param track_width (double) - track width defined in the Robot class
    */
-  void computeWheelAngles(pos curr_pos, pos target, double wheel_base, double track_width);
+  void ComputeWheelAngles();
 
   /**
    * @brief Computing the velocities for each driving wheel
@@ -45,11 +46,10 @@ class AckremannModel {
    * @param right_wheel_angle (double) - pivot angle of the right wheel
    * @param wheel_base (double) - wheel base defined in the Robot class
    */
-  void computeWheelVelocities(double left_wheel_angle, double right_wheel_angle, double wheel_base);
+  void ComputeWheelVelocities();
 
  private:
-    Robot _r;
-    pos _target;
+    Robot r_;
 };
 
 
