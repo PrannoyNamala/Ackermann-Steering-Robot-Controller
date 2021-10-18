@@ -20,20 +20,26 @@ The following assumptions are made while developing this project :-
 ## Agile Iterative Process (AIP)
 This project will be completed using AIP with the involvement of 2 programmers using Pair-programming in turns. The detailed Product Backlog, Iteration Backlogs and Work Log are mentioned in the link given below :
 
-[Agile Iterative Process](https://docs.google.com/spreadsheets/d/1TurpKACIPiHATKsQIaOi87c1XGEKK-s3Rz6SCzpHQGY/edit?usp=sharing)
+[Agile Iterative Process](https://docs.google.com/spreadsheets/d/1AjvU3cSXfIWPZ6afr97VVqBkIVaQo5zX0YGwdS3gu78/edit?usp=sharing)
 
 
 ## Important Links
 
 [Proposal Phase-0](https://drive.google.com/file/d/1umYMgm8mL1ALpWycH2YrRFYiQv6a0TN-/view?usp=sharing)
 
+[Proposal Phase-1 Update](https://drive.google.com/file/d/1YsaQfGZgOE7c7Dwa6bHzNXLxi3fZrg2r/view)
+
 [Quad Chart Phase-0](https://drive.google.com/file/d/1-h-sLWbmNeX7z31qwRXdcSlXcgGUWfXG/view?usp=sharing)
 
 [UML Diagram](https://drive.google.com/file/d/1Zu3fTrS95gYpkMdT5xp2CJ424eM1xON7/view?usp=sharing)
 
+[UML Diagram Phase 1](https://drive.google.com/file/d/183aDx3iQR4v4fukx3KLp-rI0bn9yGZ4i/view?usp=sharing)
+
 [Google Doc Link forDesign and Planning notes](https://docs.google.com/document/d/17IL55ZwxBDhujGnLBym4Dkk1ct6glk5DNWoQ6naqwEU/edit?usp=sharing)
 
 [ Youtube link to the Proposal](https://youtu.be/cgePebQyXTI)
+
+[ Youtube link to the Phase 1](https://youtu.be/n60_Hbyo3_k)
 
 ## Standard install via command-line
 ```
