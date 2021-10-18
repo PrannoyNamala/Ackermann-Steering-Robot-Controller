@@ -29,15 +29,13 @@ AckremannModel::AckremannModel(Robot r, pos target)
 /**
 * @brief Computing the angle to turn the wheels
 */
-void AckremannModel::ComputeWheelAngles(pos curr_pos, pos target,
-	double wheel_base, double track_width) {
+void AckremannModel::ComputeWheelAngles() {
 	return void;
 }
 
 /**
 * @brief Computing the velocities for each driving wheel
 */
-void AckremannModel::ComputeWheelVelocities(double left_wheel_angle,
-	 double right_wheel_angle, double wheel_base) {
+void AckremannModel::ComputeWheelVelocities() {
 	return void;
 }
