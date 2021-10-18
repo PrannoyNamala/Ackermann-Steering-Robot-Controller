@@ -11,7 +11,7 @@
  * Licensed under the MIT License (the "License")
  *
  */
-
+#pragma once
 #include <iostream>
 
 typedef double pos[3];
@@ -93,7 +93,5 @@ class Robot{
  private:
     double max_acc_, wheel_base_, track_width_;
     double curr_vel_{};
-    pos final_pos_ = {0,0,0}, curr_pos_ = {0,0,0};
+    pos final_pos_ = {0, 0, 0}, curr_pos_ = {0, 0, 0};
 };
-
-

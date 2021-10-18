@@ -11,7 +11,7 @@
  * Licensed under the MIT License (the "License")
  *
  */
-
+#pragma once
 #include <iostream>
 
 class Controller {
@@ -23,9 +23,9 @@ class Controller {
      * @param Ki (double) - Integral constant
      * @param Kd (double) - Derivative constant
      * @param dt (double) - time
+     * @param threshold (double) - allowed error
      */
     Controller(double Kp, double Ki, double Kd, double dt, double threshold);
-    
     /**
      * @brief Calculates the error integral
      * 
@@ -34,7 +34,6 @@ class Controller {
      * @return double
      */
     double CalculateErrorIntegral(double error);
-    
     /**
      * @brief Calculates the error derivative
      * 
@@ -43,7 +42,6 @@ class Controller {
      * @return double
      */
     double CalculateErrorDerivative(double error);
-    
     /**
      * @brief calculates the velocity output
      * 
@@ -53,35 +51,30 @@ class Controller {
      * @return double
      */
     double ComputeOutput(double initial_state, double final_state);
-    
     /**
      * @brief Get the kp parameter
      * 
      * @return double 
      */
     double getKp();
-    
     /**
      * @brief Get the kd parameter
      * 
      * @return double 
      */
     double getKd();
-    
     /**
      * @brief Get the ki parameter
      * 
      * @return double 
      */
     double getKi();
-    
     /**
      * @brief Get the dt parameter
      * 
      * @return double 
      */
     double getDt();
-
     /**
      * @brief Get the threshold parameter
      *

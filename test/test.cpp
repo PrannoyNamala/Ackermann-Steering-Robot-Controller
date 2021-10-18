@@ -21,7 +21,7 @@
  * Initializing the class objects
  */
 Robot test_robot(5.0, 0.2, 0.1);
-AckermannModel test_model(test_robot);
+AckermannModel test_model(test_robot, new double[3]{0,0,0});
 Controller test_controller(0.5,0.6,0.7,0.1, 1);
 
 /**

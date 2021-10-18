@@ -11,7 +11,7 @@
  * Licensed under the MIT License (the "License")
  *
  */
-
+#pragma once
 #include <iostream>
 #include <Robot.hpp>
 
@@ -27,7 +27,7 @@ class AckermannModel {
      * @param r (Robot) - object of Robot class
      * @param target (pos) - target coordinates (x,y,th)
      */
-  AckermannModel(Robot r);
+  AckermannModel(Robot r, pos target);
 
   /**
    * @brief Computing the angle to turn the wheels
