@@ -1,7 +1,7 @@
 # Ackermann Steering Robot Controller   
 [![Build Status](https://app.travis-ci.com/PrannoyNamala/Ackermann-Steering-Robot-Controller.svg?branch=main)](https://app.travis-ci.com/PrannoyNamala/Ackermann-Steering-Robot-Controller)
 [![Coverage Status](https://coveralls.io/repos/github/PrannoyNamala/Ackermann-Steering-Robot-Controller/badge.svg?branch=main)](https://coveralls.io/github/PrannoyNamala/Ackermann-Steering-Robot-Controller?branch=main)
-[![License: UMD](https://img.shields.io/badge/License-UMD-blue.svg)](https://github.com/umdjs/umd/blob/master/LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/umdjs/mit/blob/master/LICENSE.md)
 ---
 
 ## Overview
@@ -20,20 +20,26 @@ The following assumptions are made while developing this project :-
 ## Agile Iterative Process (AIP)
 This project will be completed using AIP with the involvement of 2 programmers using Pair-programming in turns. The detailed Product Backlog, Iteration Backlogs and Work Log are mentioned in the link given below :
 
-[Agile Iterative Process](https://docs.google.com/spreadsheets/d/1TurpKACIPiHATKsQIaOi87c1XGEKK-s3Rz6SCzpHQGY/edit?usp=sharing)
+[Agile Iterative Process](https://docs.google.com/spreadsheets/d/1AjvU3cSXfIWPZ6afr97VVqBkIVaQo5zX0YGwdS3gu78/edit?usp=sharing)
 
 
 ## Important Links
 
 [Proposal Phase-0](https://drive.google.com/file/d/1umYMgm8mL1ALpWycH2YrRFYiQv6a0TN-/view?usp=sharing)
 
+[Proposal Phase-1 Update](https://drive.google.com/file/d/1YsaQfGZgOE7c7Dwa6bHzNXLxi3fZrg2r/view)
+
 [Quad Chart Phase-0](https://drive.google.com/file/d/1-h-sLWbmNeX7z31qwRXdcSlXcgGUWfXG/view?usp=sharing)
 
 [UML Diagram](https://drive.google.com/file/d/1Zu3fTrS95gYpkMdT5xp2CJ424eM1xON7/view?usp=sharing)
 
+[UML Diagram Phase 1](https://drive.google.com/file/d/183aDx3iQR4v4fukx3KLp-rI0bn9yGZ4i/view?usp=sharing)
+
 [Google Doc Link forDesign and Planning notes](https://docs.google.com/document/d/17IL55ZwxBDhujGnLBym4Dkk1ct6glk5DNWoQ6naqwEU/edit?usp=sharing)
 
 [ Youtube link to the Proposal](https://youtu.be/cgePebQyXTI)
+
+[ Youtube link to the Phase 1](https://youtu.be/n60_Hbyo3_k)
 
 ## Standard install via command-line
 ```
@@ -149,28 +155,3 @@ perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 - Git
 
     It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project.
-    
-## Coppelia Sim License
-```
-CoppeliaSim Edu educational license:
-
--------------------------------------------------------------------
-The CoppeliaSim Edu educational license applies ONLY to educational entities composed by
-following people and institutions:
-
-1. Hobbyists, students, teachers and professors
-2. Schools and Universities
-
-Educational entities do NOT include companies, research institutions,
-non-profit organisations, foundations, etc.
-
-An educational entity may use CoppeliaSim Edu under following conditions:
- 
-1. Usage should be non-commercial.
-
-CoppeliaSim Edu is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-In no event will the original authors and Coppelia Robotics AG be held liable for any injuries,
-death, data loss, damages, loss of profits or any other loss while using or misuing this software.
--------------------------------------------------------------------
-```
