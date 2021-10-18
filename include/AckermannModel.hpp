@@ -38,7 +38,7 @@ class AckremannModel {
    * @param wheel_base (double) - wheel base defined in the Robot class
    * @param track_width (double) - track width defined in the Robot class
    */
-  void ComputeWheelAngles(pos curr_pos, pos target, double wheel_base, double track_width);
+  void ComputeWheelAngles();
 
   /**
    * @brief Computing the velocities for each driving wheel
@@ -47,7 +47,7 @@ class AckremannModel {
    * @param right_wheel_angle (double) - pivot angle of the right wheel
    * @param wheel_base (double) - wheel base defined in the Robot class
    */
-  void ComputeWheelVelocities(double left_wheel_angle, double right_wheel_angle, double wheel_base);
+  void ComputeWheelVelocities();
 
  private:
     Robot r_;
