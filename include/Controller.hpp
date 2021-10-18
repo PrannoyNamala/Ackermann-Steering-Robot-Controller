@@ -8,6 +8,8 @@
  *
  * Copyright (c) 2021 Group 808X-MT14
  *
+ * Licensed under the MIT License (the "License")
+ *
  */
 
 #include <iostream>
@@ -22,7 +24,7 @@ class Controller {
      * @param Kd (double) - Derivative constant
      * @param dt (double) - time
      */
-    Controller(double Kp, double Ki, double Kd, double dt);
+    Controller(double Kp, double Ki, double Kd, double dt, double threshold);
     
     /**
      * @brief Calculates the error integral
@@ -53,21 +55,21 @@ class Controller {
     double computeOutput(double initial_state, double final_state);
     
     /**
-     * @brief Get the Kp parameter
+     * @brief Get the kp parameter
      * 
      * @return double 
      */
     double getKp();
     
     /**
-     * @brief Get the Kd parameter
+     * @brief Get the kd parameter
      * 
      * @return double 
      */
     double getKd();
     
     /**
-     * @brief Get the Ki parameter
+     * @brief Get the ki parameter
      * 
      * @return double 
      */
@@ -81,6 +83,6 @@ class Controller {
     double getDt();
 
  private:
-    double _Kp, _Ki, _Kd, _dt;
-    double _previous_error {}, _integral_sum{};
+    double kp_, ki_, kd_, dt_, threshold_;
+    double previous_error_ {}, integral_sum_{};
 };
