@@ -59,35 +59,35 @@ class Controller {
      * 
      * @return double 
      */
-    double GetKp();
+    double getKp();
     
     /**
      * @brief Get the kd parameter
      * 
      * @return double 
      */
-    double GetKd();
+    double getKd();
     
     /**
      * @brief Get the ki parameter
      * 
      * @return double 
      */
-    double GetKi();
+    double getKi();
     
     /**
      * @brief Get the dt parameter
      * 
      * @return double 
      */
-    double GetDt();
+    double getDt();
 
     /**
      * @brief Get the threshold parameter
      *
      * @return double
      */
-    double GetThreshold();
+    double getThreshold();
 
  private:
     double kp_, ki_, kd_, dt_, threshold_;

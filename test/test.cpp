@@ -33,28 +33,28 @@ test_controller = Controller(0.5,0.6,0.7,0.1, 1);
  * @brief Check for the get maximum acceleration method
  */
 TEST(RobotTest, GettingMaxAcc) {
-  ASSERT_EQ(test_robot.GetMaxAcc(), 5);
+  ASSERT_EQ(test_robot.getMaxAcc(), 5);
 }
 
 /**
  * @brief Check for the get wheel base method
  */
 TEST(RobotTest, GettingWheelBase) {
-  ASSERT_EQ(test_robot.GetWheelBase(), 0.2);
+  ASSERT_EQ(test_robot.getWheelBase(), 0.2);
 }
 
 /**
  * @brief Check for the get track width method
  */
 TEST(RobotTest, GettingTrackWidth) {
-  ASSERT_EQ(test_robot.GetTrackWidth(), 0.1);
+  ASSERT_EQ(test_robot.getTrackWidth(), 0.1);
 }
 
 /**
  * @brief Check for the get current position method
  */
 TEST(RobotTest, GettingCurrentPosition) {
-  ASSERT_EQ(test_robot.GetCurrPos(), {0,0,0});
+  ASSERT_EQ(test_robot.getCurrPos(), {0,0,0});
 }
 
 /**
@@ -62,21 +62,21 @@ TEST(RobotTest, GettingCurrentPosition) {
  */
 TEST(RobotTest, SettingCurrentPosition) {
   test_robot.setCurrPos({1,1,1});
-  ASSERT_EQ(test_robot.GetCurrPos(), {1,1,1});
+  ASSERT_EQ(test_robot.getCurrPos(), {1,1,1});
 }
 
 /**
  * @brief Check for the get current velocity method
  */
 TEST(RobotTest, GettingCurrentVelocity) {
-  ASSERT_EQ(test_robot.GetCurrVel(), 0);
+  ASSERT_EQ(test_robot.getCurrVel(), 0);
 }
 
 /**
  * @brief Check for the set current velocity method
  */
 TEST(RobotTest, SettingCurrentVelocity) {
-  test_robot.SetCurrVel(2);
+  test_robot.setCurrVel(2);
   ASSERT_EQ(test_robot.getCurrVel(), 2);
 }
 
@@ -84,15 +84,15 @@ TEST(RobotTest, SettingCurrentVelocity) {
  * @brief Check for the get final position method
  */
 TEST(RobotTest, SettingFinalPosition) {
-  ASSERT_EQ(test_robot.GetFinalPos(), {0,0,0});
+  ASSERT_EQ(test_robot.getFinalPos(), {0,0,0});
 }
 
 /**
  * @brief Check for the set final position method
  */
 TEST(RobotTest, SettingFinalPosition) {
-  test_robot.SetFinalPos({1,1,1});
-  ASSERT_EQ(test_robot.GetFinalPos(), {1,1,1});
+  test_robot.setFinalPos({1,1,1});
+  ASSERT_EQ(test_robot.getFinalPos(), {1,1,1});
 }
 
 /**
@@ -140,7 +140,7 @@ TEST(AckermannModelTest, wheelAngleValidityLeft) {
  */
 TEST(AckermannModelTest, validateVelocity) {
   test_model.setTarget({1,0,0});
-  test_robot.SetCurrVel(2);
+  test_robot.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
   ASSERT_EQ(left_wheel_vel_,2);
@@ -151,7 +151,7 @@ TEST(AckermannModelTest, validateVelocity) {
  */
 TEST(AckermannModelTest, validateVelocity) {
   test_model.setTarget({1,0,0});
-  test_robot.SetCurrVel(2);
+  test_robot.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
   ASSERT_EQ(right_wheel_vel_,2);
@@ -165,35 +165,35 @@ TEST(AckermannModelTest, validateVelocity) {
  * @brief Check for the get Kp method
  */
 TEST(ControllerTest, testKp) {
-  ASSERT_EQ(test_controller.GetKp(), 0.5);
+  ASSERT_EQ(test_controller.getKp(), 0.5);
 }
 
 /**
  * @brief Check for the get Ki method
  */
 TEST(ControllerTest, testKi) {
-  ASSERT_EQ(test_controller.GetKi(), 0.6);
+  ASSERT_EQ(test_controller.getKi(), 0.6);
 }
 
 /**
  * @brief Check for the get Kd method
  */
 TEST(ControllerTest, testKd) {
-  ASSERT_EQ(test_controller.GetKd(), 0.7);
+  ASSERT_EQ(test_controller.getKd(), 0.7);
 }
 
 /**
  * @brief Check for the get dt method
  */
 TEST(ControllerTest, testDt) {
-  ASSERT_EQ(test_controller.GetDt(), 0.1);
+  ASSERT_EQ(test_controller.getDt(), 0.1);
 }
 
 /**
  * @brief Check for the get threshold method
  */
 TEST(ControllerTest, testThreshold) {
-  ASSERT_EQ(test_controller.GetThreshold(), 1);
+  ASSERT_EQ(test_controller.getThreshold(), 1);
 }
 
 /**

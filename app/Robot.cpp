@@ -31,55 +31,55 @@ Robot::Robot(double max_acc, double wheel_base, double track_width)
 /**
 * @brief Get the max_acc parameter
 */
-double Robot::GetMaxAcc() {
+double Robot::getMaxAcc() {
 	return max_acc_;
 }
 
 /**
 * @brief Get the wheel_base parameter
 */
-double Robot::GetWheelBase() {
+double Robot::getWheelBase() {
 	return wheel_base_;
 }
 
 /**
 * @brief Get the track width parameter
 */
-double Robot::GetTrackWidth() {
+double Robot::getTrackWidth() {
 	return track_width_;
 }
 
 /**
 * @brief Get the curr_pos parameter
 */
-pos Robot::GetCurrPos() {
+pos Robot::getCurrPos() {
 	return curr_pos_;
 }
 
 /**
 * @brief Set the curr_pos parameter
 */
-void Robot::SetCurrPos(pos position) {
+void Robot::setCurrPos(pos position) {
 	curr_pos_ = position;
 }
 
 /**
 * @brief Get the final_pos parameter
 */
-pos Robot::GetFinalPos() {
+pos Robot::getFinalPos() {
 	return final_pos_;
 }
 
 /**
 * @brief Set the final_pos parameter
 */
-void Robot::SetFinalPos(pos position) {
+void Robot::setFinalPos(pos position) {
 	final_pos_ = position;
 }
 
 /**
 * @brief Set the current velocity parameter
 */
-void Robot::SetCurrVel(double velocity) {
+void Robot::setCurrVel(double velocity) {
   curr_vel_ = velocity;
 }
