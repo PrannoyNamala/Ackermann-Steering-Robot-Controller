@@ -82,6 +82,13 @@ class Controller {
      */
     double GetDt();
 
+    /**
+     * @brief Get the threshold parameter
+     *
+     * @return double
+     */
+    double GetThreshold();
+
  private:
     double kp_, ki_, kd_, dt_, threshold_;
     double previous_error_ {}, integral_sum_{};
