@@ -8,6 +8,8 @@
  *
  * Copyright (c) 2021 Group 808X-MT14
  *
+ * Licensed under the MIT License (the "License")
+ *
  */
 
 #include <iostream>
@@ -72,7 +74,7 @@ class Robot{
     *
     * @param curr_vel (double) - Current Velocity
     */
-    void setCurrVel();
+    void setCurrVel(double velocity);
 
     /**
     * @brief Get the final_pos parameter
@@ -89,9 +91,9 @@ class Robot{
     void setFinalPos(pos final_pos);
 
  private:
-    double _max_acc, _wheel_base, _track_width;
-    double _curr_vel{};
-    pos final_pos = {0,0,0}, curr_pos = {0,0,0};
+    double max_acc_, wheel_base_, track_width_;
+    double curr_vel_{};
+    pos final_pos_ = {0,0,0}, curr_pos_ = {0,0,0};
 };
 
 
