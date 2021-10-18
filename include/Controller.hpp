@@ -33,7 +33,7 @@ class Controller {
      * 
      * @return double
      */
-    double calculateErrorIntegral(double error);
+    double CalculateErrorIntegral(double error);
     
     /**
      * @brief Calculates the error derivative
@@ -42,7 +42,7 @@ class Controller {
      *
      * @return double
      */
-    double calculateErrorDerivative(double error);
+    double CalculateErrorDerivative(double error);
     
     /**
      * @brief calculates the velocity output
@@ -52,35 +52,35 @@ class Controller {
      *
      * @return double
      */
-    double computeOutput(double initial_state, double final_state);
+    double ComputeOutput(double initial_state, double final_state);
     
     /**
      * @brief Get the kp parameter
      * 
      * @return double 
      */
-    double getKp();
+    double GetKp();
     
     /**
      * @brief Get the kd parameter
      * 
      * @return double 
      */
-    double getKd();
+    double GetKd();
     
     /**
      * @brief Get the ki parameter
      * 
      * @return double 
      */
-    double getKi();
+    double GetKi();
     
     /**
      * @brief Get the dt parameter
      * 
      * @return double 
      */
-    double getDt();
+    double GetDt();
 
  private:
     double kp_, ki_, kd_, dt_, threshold_;
