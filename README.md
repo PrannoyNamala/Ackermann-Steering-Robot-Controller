@@ -1,7 +1,7 @@
 # Ackermann Steering Robot Controller   
 [![Build Status](https://app.travis-ci.com/PrannoyNamala/Ackermann-Steering-Robot-Controller.svg?branch=main)](https://app.travis-ci.com/PrannoyNamala/Ackermann-Steering-Robot-Controller)
 [![Coverage Status](https://coveralls.io/repos/github/PrannoyNamala/Ackermann-Steering-Robot-Controller/badge.svg?branch=main)](https://coveralls.io/github/PrannoyNamala/Ackermann-Steering-Robot-Controller?branch=main)
-[![License: UMD](https://img.shields.io/badge/License-UMD-blue.svg)](https://github.com/umdjs/umd/blob/master/LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/umdjs/mit/blob/master/LICENSE.md)
 ---
 
 ## Overview
@@ -149,28 +149,3 @@ perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 - Git
 
     It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project.
-    
-## Coppelia Sim License
-```
-CoppeliaSim Edu educational license:
-
--------------------------------------------------------------------
-The CoppeliaSim Edu educational license applies ONLY to educational entities composed by
-following people and institutions:
-
-1. Hobbyists, students, teachers and professors
-2. Schools and Universities
-
-Educational entities do NOT include companies, research institutions,
-non-profit organisations, foundations, etc.
-
-An educational entity may use CoppeliaSim Edu under following conditions:
- 
-1. Usage should be non-commercial.
-
-CoppeliaSim Edu is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-In no event will the original authors and Coppelia Robotics AG be held liable for any injuries,
-death, data loss, damages, loss of profits or any other loss while using or misuing this software.
--------------------------------------------------------------------
-```
