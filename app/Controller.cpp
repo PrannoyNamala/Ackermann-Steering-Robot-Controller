@@ -54,34 +54,34 @@ double Controller::ComputeOutput(double initial_state, double final_state) {
 /**
 * @brief Get the kp parameter
 */
-double Controller::GetKp() {
+double Controller::getKp() {
 	return kp_;
 }
 
 /**
 * @brief Get the ki parameter
 */
-double Controller::GetKi() {
+double Controller::getKi() {
 	return ki_;
 }
 
 /**
 * @brief Get the kd parameter
 */
-double Controller::GetKd() {
+double Controller::getKd() {
 	return kd_;
 }
 
 /**
 * @brief Get the dt parameter
 */
-double Controller::GetDt() {
+double Controller::getDt() {
 	return dt_;
 }
 
 /**
 * @brief Get the threshold parameter
 */
-double Controller::GetThreshold() {
+double Controller::getThreshold() {
   return threshold_;
 }
