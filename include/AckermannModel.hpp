@@ -27,7 +27,7 @@ class AckermannModel {
      * @param r (Robot) - object of Robot class
      * @param target (pos) - target coordinates (x,y,th)
      */
-  AckermannModel(Robot r, pos target);
+  explicit AckermannModel(Robot r);
 
   /**
    * @brief Computing the angle to turn the wheels
@@ -50,7 +50,6 @@ class AckermannModel {
 
  private:
     Robot r_;
-    pos target_;
 };
 
 

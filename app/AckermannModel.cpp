@@ -14,15 +14,14 @@
 
 
 #include <AckermannModel.hpp>
-#include <math>
+#include <cmath>
 #include <iostream>
 
 /**
 * @brief Constructs the AckermannModel object with user defined values
 */
-AckermannModel::AckermannModel(Robot *r, pos target)
-: r_(r),
-  target_(target) {
+AckermannModel::AckermannModel(Robot r)
+: r_(r) {
     std::cout << "AckermannModel initialized" << std::endl;
 }
 
@@ -30,12 +29,12 @@ AckermannModel::AckermannModel(Robot *r, pos target)
 * @brief Computing the angle to turn the wheels
 */
 void AckermannModel::ComputeWheelAngles() {
-  return void;
+  return;
 }
 
 /**
 * @brief Computing the velocities for each driving wheel
 */
 void AckermannModel::ComputeWheelVelocities() {
-  return void;
+  return;
 }

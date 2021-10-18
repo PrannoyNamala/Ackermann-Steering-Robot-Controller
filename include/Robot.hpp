@@ -13,8 +13,7 @@
  */
 #pragma once
 #include <iostream>
-
-typedef double pos[3];
+#include <array>
 
 class Robot{
  public:
@@ -53,14 +52,14 @@ class Robot{
     *
     * @return pos
     */
-    pos* getCurrPos();
+    std::array<double, 3> getCurrPos();
 
     /**
     * @brief Set the curr_pos parameter
     *
     * @param curr_pos (pos) - Current Position (x,y,th)
     */
-    void setCurrPos(pos curr_pos);
+    void setCurrPos(std::array<double, 3> curr_pos);
 
     /**
     * @brief Get the curr_vel parameter
@@ -81,17 +80,17 @@ class Robot{
     *
     * @return pos
     */
-    pos* getFinalPos();
+    std::array<double, 3> getFinalPos();
 
     /**
     * @brief Set the final_pos parameter
     *
     * @param final_pos (pos) - Final Position (x,y,th)
     */
-    void setFinalPos(pos final_pos);
+    void setFinalPos(std::array<double, 3> final_pos);
 
  private:
     double max_acc_, wheel_base_, track_width_;
     double curr_vel_{};
-    pos final_pos_ = {0, 0, 0}, curr_pos_ = {0, 0, 0};
+    std::array<double, 3> final_pos_ = {0, 0, 0}, curr_pos_ = {0, 0, 0};
 };

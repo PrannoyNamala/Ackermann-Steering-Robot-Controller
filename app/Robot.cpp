@@ -15,6 +15,7 @@
 
 #include <Robot.hpp>
 #include <iostream>
+#include <array>
 
 /**
 * @brief Constructs the Robot object with user defined values
@@ -23,7 +24,7 @@ Robot::Robot(double max_acc, double wheel_base, double track_width)
 : max_acc_(max_acc),
   wheel_base_(wheel_base),
   track_width_(track_width) {
-  std::cout < <"Robot Initialized with Maximum Acceleration:" << max_acc
+  std::cout << "Robot Initialized with Maximum Acceleration:" << max_acc
       << "m/s^2, Wheel Base:" << wheel_base << "m, Track Width:"
       << track_width << "m" << std::endl;
 }
@@ -52,28 +53,28 @@ double Robot::getTrackWidth() {
 /**
 * @brief Get the curr_pos parameter
 */
-pos* Robot::getCurrPos() {
+std::array<double, 3> Robot::getCurrPos() {
   return curr_pos_;
 }
 
 /**
 * @brief Set the curr_pos parameter
 */
-void Robot::setCurrPos(pos position) {
+void Robot::setCurrPos(std::array<double, 3> position) {
   curr_pos_ = position;
 }
 
 /**
 * @brief Get the final_pos parameter
 */
-pos* Robot::getFinalPos() {
+std::array<double, 3> Robot::getFinalPos() {
   return final_pos_;
 }
 
 /**
 * @brief Set the final_pos parameter
 */
-void Robot::setFinalPos(pos position) {
+void Robot::setFinalPos(std::array<double, 3> position) {
   final_pos_ = position;
 }
 
@@ -82,4 +83,11 @@ void Robot::setFinalPos(pos position) {
 */
 void Robot::setCurrVel(double velocity) {
   curr_vel_ = velocity;
+}
+
+/**
+* @brief get the current velocity parameter
+*/
+double Robot::getCurrVel() {
+  return curr_vel_;
 }

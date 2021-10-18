@@ -16,12 +16,13 @@
 #include <gtest/gtest.h>
 #include <AckermannModel.hpp>
 #include <Controller.hpp>
+#include <array>
 
 /**
  * Initializing the class objects
  */
 Robot test_robot(5.0, 0.2, 0.1);
-AckermannModel test_model(test_robot, new double[3]{0,0,0});
+AckermannModel test_model(test_robot);
 Controller test_controller(0.5,0.6,0.7,0.1, 1);
 
 /**
@@ -52,19 +53,19 @@ TEST(RobotTest, GettingTrackWidth) {
 /**
  * @brief Check for the get current position method
  */
-//TEST(RobotTest, GettingCurrentPosition) {
-//  for(double i = 0; i < 3; i++)
-//    ASSERT_EQ(*(test_robot.getCurrPos()++), 0);
-//}
+TEST(RobotTest, GettingCurrentPosition) {
+  std::array<double,3> pos = {0,0,0};
+  ASSERT_EQ(test_robot.getCurrPos(), pos);
+}
 
 /**
  * @brief Check for the set current position method
  */
-//TEST(RobotTest, SettingCurrentPosition) {
-//  test_robot.setCurrPos(new double[3]{1.0,1.0,1.0});
-//  for(double i = 0; i < 3; i++)
-//      ASSERT_EQ(*(test_robot.getCurrPos()++), 1);
-//}
+TEST(RobotTest, SettingCurrentPosition) {
+  std::array<double,3> pos = {1,1,1};
+  test_robot.setCurrPos(pos);
+  ASSERT_EQ(test_robot.getCurrPos(), pos);
+}
 
 /**
  * @brief Check for the get current velocity method
@@ -84,19 +85,19 @@ TEST(RobotTest, SettingCurrentVelocity) {
 /**
  * @brief Check for the get final position method
  */
-//TEST(RobotTest, GettingFinalPosition) {
-//  for(double i = 0; i < 3; i++)
-//      ASSERT_EQ(*(test_robot.getFinalPos()++), 0);
-//}
+TEST(RobotTest, GettingFinalPosition) {
+  std::array<double,3> pos = {0,0,0};
+  ASSERT_EQ(test_robot.getFinalPos(), pos);
+}
 
 /**
  * @brief Check for the set final position method
  */
-//TEST(RobotTest, SettingFinalPosition) {
-//  test_robot.setFinalPos(new double[3]{1.0,1.0,1.0});
-//  for(double i = 0; i < 3; i++)
-//      ASSERT_EQ(*(test_robot.getFinalPos()++), 1);
-//}
+TEST(RobotTest, SettingFinalPosition) {
+  std::array<double,3> pos = {1,1,1};
+  test_robot.setFinalPos(pos);
+  ASSERT_EQ(test_robot.getFinalPos(), pos);
+}
 
 /**
  * Ackermann Model Class Test
@@ -123,7 +124,7 @@ TEST(AckermannModelTest, boundedOutputRightAngle) {
  * @brief Check for the wheel angle of right wheel
  */
 TEST(AckermannModelTest, wheelAngleValidityRight) {
-  test_robot.setFinalPos(new double[3]{1.0,0.0,0.0});
+  test_robot.setFinalPos({1.0,0.0,0.0});
   test_model.ComputeWheelAngles();
   ASSERT_EQ(test_model.right_wheel_angle_,0);
 }
@@ -132,7 +133,7 @@ TEST(AckermannModelTest, wheelAngleValidityRight) {
  * @brief Check for the wheel angle of left wheel
  */
 TEST(AckermannModelTest, wheelAngleValidityLeft) {
-  test_robot.setFinalPos(new double[3]{1.0,0.0,0.0});
+  test_robot.setFinalPos({1.0,0.0,0.0});
   test_model.ComputeWheelAngles();
   ASSERT_EQ(test_model.left_wheel_angle_,0);
 }
@@ -142,7 +143,7 @@ TEST(AckermannModelTest, wheelAngleValidityLeft) {
  * @brief Check for the velocity of left wheel
  */
 TEST(AckermannModelTest, validateVelocityLeft) {
-  test_robot.setFinalPos(new double[3]{1,0,0});
+  test_robot.setFinalPos({1,0,0});
   test_robot.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
@@ -153,7 +154,7 @@ TEST(AckermannModelTest, validateVelocityLeft) {
  * @brief Check for the velocity of right wheel
  */
 TEST(AckermannModelTest, validateVelocityRight) {
-  test_robot.setFinalPos(new double[3]{1,0,0});
+  test_robot.setFinalPos({1,0,0});
   test_robot.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
