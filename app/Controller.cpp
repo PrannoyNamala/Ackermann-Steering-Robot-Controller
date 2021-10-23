@@ -35,21 +35,27 @@ Controller::Controller(double Kp, double Ki, double Kd, double dt,
 * @brief Calculates the error integral
 */
 double Controller::CalculateErrorIntegral(double error) {
-  return 0;
+  integral_sum_ += (error * dt_);
+  return integral_sum_;
 }
 
 /**
 * @brief Calculates the error derivative
 */
 double Controller::CalculateErrorDerivative(double error) {
-  return 0;
+  return (error - previous_error_) * dt_;
 }
 
 /**
 * @brief calculates the velocity output
 */
 double Controller::ComputeOutput(double initial_state, double final_state) {
-  return 0;
+  double error = final_state - initial_state;
+  double pid_gains = (kp_ * error * dt_)
+      + (ki_ * CalculateErrorIntegral(error))
+      + (kd_ * CalculateErrorDerivative(error));
+  previous_error_ = error;
+  return pid_gains;
 }
 
 /**
