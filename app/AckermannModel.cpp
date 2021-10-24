@@ -20,8 +20,10 @@
 /**
 * @brief Constructs the AckermannModel object with user defined values
 */
-AckermannModel::AckermannModel(Robot r)
-: r_(r) {
+AckermannModel::AckermannModel(Robot &r,Controller &right_vel_controller,Controller &left_vel_controller)
+: r_(r),
+  right_vel_controller_(right_vel_controller),
+  left_vel_controller_(left_vel_controller) {
     std::cout << "AckermannModel initialized" << std::endl;
 }
 
@@ -29,12 +31,59 @@ AckermannModel::AckermannModel(Robot r)
 * @brief Computing the angle to turn the wheels
 */
 void AckermannModel::ComputeWheelAngles() {
-  return;
+   // Target angle
+  double wheel_base = r_.getWheelBase();
+  double track_width = r_.getTrackWidth();
+
+  std::array<double,3> curr_pos = r_.getCurrPos();
+  std::array<double,3> final_pos = r_.getFinalPos();
+  std::cout << "Start Pose" << curr_pos[1]<< std::endl;
+  std::cout << "Final Pose" << final_pos[1]<< std::endl;
+
+  delta_ = atan2(final_pos[1]-curr_pos[1],final_pos[0]-curr_pos[0]);
+  if (delta_ < -0.785) {
+    delta_ = -0.785;
+  }
+  else if (delta_ > 0.785) {
+    delta_ = 0.785;
+  }
+
+
+  std::cout<< "Delta "<<delta_<< std::endl;
+  double radius_icc_ = wheel_base/tan(delta_);
+
+    if (delta_>0){
+      right_wheel_angle_ = atan2(wheel_base,(radius_icc_-(0.5*track_width)));
+      left_wheel_angle_ = atan2(wheel_base,(radius_icc_+(0.5*track_width)));
+    }
+    else{
+      left_wheel_angle_ = atan2(wheel_base,(radius_icc_-(0.5*track_width)));
+      right_wheel_angle_ = atan2(wheel_base,(radius_icc_+(0.5*track_width)));
+    }
 }
 
 /**
 * @brief Computing the velocities for each driving wheel
 */
 void AckermannModel::ComputeWheelVelocities() {
+  double wheel_base = r_.getWheelBase();
+  double curr_vel = r_.getCurrVel();
+  std::cout<<"Current Velocity"<<curr_vel;
+  right_wheel_vel_ = curr_vel*sin(right_wheel_angle_)/wheel_base;
+  left_wheel_vel_ = curr_vel*sin(left_wheel_angle_)/wheel_base;
+}
+
+void AckermannModel::GoTotarget() {
+
+
+//   while(curr_pos not in treshold){
+//     computeangles
+//     computewheelvelocities
+//     computeOutputforRightWheel
+//     conputeOutputforleftwheel
+//     updatePosition // Think which one here
+//     print status
+//   }
   return;
+
 }
