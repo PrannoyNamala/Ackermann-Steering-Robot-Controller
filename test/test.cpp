@@ -22,10 +22,10 @@
  * Initializing the class objects
  */
 Robot test_robot(5.0, 0.2, 0.1, 0.785);
-Controller right_vel_test_controller(0.5,0.6,0.7,0.1, 1);
-Controller left_vel_test_controller(0.5,0.6,0.7,0.1, 1);
+Controller right_vel_test_controller(0.5,0.6,0.7,0.1);
+Controller left_vel_test_controller(0.5,0.6,0.7,0.1);
 AckermannModel test_model(test_robot, right_vel_test_controller, left_vel_test_controller);
-Controller test_controller(0.5,0.6,0.7,0.1, 1);
+Controller test_controller(0.5,0.6,0.7,0.1);
 
 
 /**
@@ -89,7 +89,7 @@ TEST(RobotTest, SettingCurrentVelocity) {
  * @brief Check for the get final position method
  */
 TEST(RobotTest, GettingFinalPosition) {
-  std::array<double,3> pos = {1,1,1};
+  std::array<double,3> pos = {1,1,0};
   ASSERT_EQ(test_robot.getFinalPos(), pos);
 }
 
@@ -101,6 +101,14 @@ TEST(RobotTest, SettingFinalPosition) {
   test_robot.setFinalPos(pos);
   ASSERT_EQ(test_robot.getFinalPos(), pos);
 }
+
+/**
+ * @brief Check for the get max heading angle method
+ */
+TEST(RobotTest, getMaxHeadingAngle) {
+  ASSERT_EQ(test_robot.getCurrVel(), 0.785);
+}
+
 
 /**
  * Ackermann Model Class Test
@@ -201,13 +209,6 @@ TEST(ControllerTest, testDt) {
 }
 
 /**
- * @brief Check for the get threshold method
- */
-TEST(ControllerTest, testThreshold) {
-  ASSERT_EQ(test_controller.getThreshold(), 1);
-}
-
-/**
  * @brief Check for the Integral error method
  */
 TEST(ControllerTest, validateIntegralError) {
@@ -225,7 +226,7 @@ TEST(ControllerTest, validateDerivativeError) {
  * @brief Check for the compute output method
  */
 TEST(ControllerTest, validateComputeOutput) {
-  Controller controller(0.5, 0.4, 0.6, 1.0, 1.0);
+  Controller controller(0.5, 0.4, 0.6, 1.0);
 
   double output = controller.ComputeOutput(0, 5);
   ASSERT_NEAR(7.5, output, 0.5);
@@ -235,4 +236,15 @@ TEST(ControllerTest, validateComputeOutput) {
 
   output = controller.ComputeOutput(output, 5);
   ASSERT_NEAR(17.125, output, 0.5);
+}
+
+TEST(SystemTest, ConvergenceTest) {
+  Robot sys_robot(5.0, 0.2, 0.1, 0.785);
+  sys_robot.setFinalPos({5,5,0});
+  sys_robot.setCurrVel(2);
+  Controller right_vel_sys_controller(0.5,0.6,0.7,0.1);
+  Controller left_vel_sys_controller(0.5,0.6,0.7,0.1);
+  AckermannModel sys_model(sys_robot, right_vel_sys_controller, left_vel_sys_controller);
+
+  ASSERT_TRUE(sys_model.GoTotarget(0.1)==1);
 }
