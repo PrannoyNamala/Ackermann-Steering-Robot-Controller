@@ -24,7 +24,7 @@ class Robot{
      * @param wheel_base (double) - Wheel base
      * @param track_width (double) - Track Width
      */
-    Robot(double max_acc, double wheel_base, double track_width);
+    Robot(double max_acc, double wheel_base, double track_width, double max_heading_angle);
 
     /**
     * @brief Get the max_acc parameter
@@ -88,9 +88,17 @@ class Robot{
     * @param final_pos (pos) - Final Position (x,y,th)
     */
     void setFinalPos(std::array<double, 3> final_pos);
+    
+    /**
+    * @brief Get the max_pivot_angle parameter
+    *
+    * @return double
+    */
+    double getMaxHeadingAngle();
+    
 
  private:
-    double max_acc_, wheel_base_, track_width_;
+    double max_acc_, wheel_base_, track_width_, max_heading_angle_;
     double curr_vel_{};
-    std::array<double, 3> final_pos_ = {0, 0, 0}, curr_pos_ = {0, 0, 0};
+    std::array<double, 3> final_pos_ = {1,1,1}, curr_pos_ = {0, 0, 0};
 };

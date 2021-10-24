@@ -14,12 +14,16 @@
 #pragma once
 #include <iostream>
 #include <Robot.hpp>
+#include <Controller.hpp>
 
 
 class AckermannModel {
  public:
-  double radius_icc_{}, left_wheel_angle_{}, right_wheel_angle_{};
+  double radius_icc_{}, left_wheel_angle_{}, right_wheel_angle_{},delta_{};
   double left_wheel_vel_{}, right_wheel_vel_{};
+  Robot r_;
+  Controller right_vel_controller_;
+  Controller left_vel_controller_;
 
     /**
      * @brief Construct a new AckremannModel object
@@ -27,7 +31,7 @@ class AckermannModel {
      * @param r (Robot) - object of Robot class
      * @param target (pos) - target coordinates (x,y,th)
      */
-  explicit AckermannModel(Robot r);
+  AckermannModel(Robot &r,Controller &right_vel_controller,Controller &left_vel_controller);
 
   /**
    * @brief Computing the angle to turn the wheels
@@ -48,8 +52,15 @@ class AckermannModel {
    */
   void ComputeWheelVelocities();
 
- private:
-    Robot r_;
+  /**
+   * @brief Computing ve
+   *
+   * @param left_wheel_angle (double) - pivot angle of the left wheel
+   * @param right_wheel_angle (double) - pivot angle of the right wheel
+   * @param wheel_base (double) - wheel base defined in the Robot class
+   */
+  void GoTotarget();
+
 };
 
 

@@ -20,10 +20,11 @@
 /**
 * @brief Constructs the Robot object with user defined values
 */
-Robot::Robot(double max_acc, double wheel_base, double track_width)
+Robot::Robot(double max_acc, double wheel_base, double track_width, double max_heading_angle)
 : max_acc_(max_acc),
   wheel_base_(wheel_base),
-  track_width_(track_width) {
+  track_width_(track_width),
+  max_heading_angle_(max_heading_angle) {
   std::cout << "Robot Initialized with Maximum Acceleration:" << max_acc
       << "m/s^2, Wheel Base:" << wheel_base << "m, Track Width:"
       << track_width << "m" << std::endl;
@@ -91,3 +92,11 @@ void Robot::setCurrVel(double velocity) {
 double Robot::getCurrVel() {
   return curr_vel_;
 }
+
+/**
+* @brief get the maximum pivot angle parameter
+*/
+double Robot::getMaxHeadingAngle() {
+  return max_heading_angle_;
+}
+
