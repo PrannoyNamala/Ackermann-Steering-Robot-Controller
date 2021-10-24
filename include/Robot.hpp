@@ -100,5 +100,5 @@ class Robot{
  private:
     double max_acc_, wheel_base_, track_width_, max_heading_angle_;
     double curr_vel_{};
-    std::array<double, 3> final_pos_ = {1,1,1}, curr_pos_ = {0, 0, 0};
+    std::array<double, 3> final_pos_ = {1,1,0}, curr_pos_ = {0, 0, 0};
 };
