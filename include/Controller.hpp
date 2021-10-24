@@ -25,7 +25,7 @@ class Controller {
      * @param dt (double) - time
      * @param threshold (double) - allowed error
      */
-    Controller(double Kp, double Ki, double Kd, double dt, double threshold);
+    Controller(double Kp, double Ki, double Kd, double dt);
     /**
      * @brief Calculates the error integral
      * 

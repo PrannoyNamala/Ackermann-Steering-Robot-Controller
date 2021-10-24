@@ -19,16 +19,13 @@
 /**
 * @brief Construct a new PID Controller object
 */
-Controller::Controller(double Kp, double Ki, double Kd, double dt,
-                       double threshold)
+Controller::Controller(double Kp, double Ki, double Kd, double dt)
 : kp_(Kp),
   ki_(Ki),
   kd_(Kd),
-  dt_(dt),
-  threshold_(threshold) {
+  dt_(dt) {
   std::cout << "Controller initialized with " << "Kp: " << kp_ << " Ki: "
-            << ki_ << " Kd: " << kd_ << " dt: " << dt_
-            << "threshold: " << threshold_ << std::endl;
+            << ki_ << " Kd: " << kd_ << " dt: " << dt_<<std::endl;
 }
 
 /**
