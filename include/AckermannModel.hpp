@@ -59,7 +59,7 @@ class AckermannModel {
    * @param right_wheel_angle (double) - pivot angle of the right wheel
    * @param wheel_base (double) - wheel base defined in the Robot class
    */
-  void GoTotarget();
+  int GoTotarget(double threshold);
 
 };
 

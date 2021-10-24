@@ -37,8 +37,8 @@ void AckermannModel::ComputeWheelAngles() {
 
   std::array<double,3> curr_pos = r_.getCurrPos();
   std::array<double,3> final_pos = r_.getFinalPos();
-  std::cout << "Start Pose" << curr_pos[1]<< std::endl;
-  std::cout << "Final Pose" << final_pos[1]<< std::endl;
+  // std::cout << "Start Pose" << curr_pos[1]<< std::endl;
+  // std::cout << "Final Pose" << final_pos[1]<< std::endl;
 
   delta_ = atan2(final_pos[1]-curr_pos[1],final_pos[0]-curr_pos[0]);
   if (delta_ < -0.785) {
@@ -49,7 +49,7 @@ void AckermannModel::ComputeWheelAngles() {
   }
 
 
-  std::cout<< "Delta "<<delta_<< std::endl;
+  // std::cout<< "Delta "<<delta_<< std::endl;
   double radius_icc_ = wheel_base/tan(delta_);
 
     if (delta_>0){
@@ -68,22 +68,43 @@ void AckermannModel::ComputeWheelAngles() {
 void AckermannModel::ComputeWheelVelocities() {
   double wheel_base = r_.getWheelBase();
   double curr_vel = r_.getCurrVel();
-  std::cout<<"Current Velocity"<<curr_vel;
+  // std::cout<<"Current Velocity"<<curr_vel;
   right_wheel_vel_ = curr_vel*sin(right_wheel_angle_)/wheel_base;
   left_wheel_vel_ = curr_vel*sin(left_wheel_angle_)/wheel_base;
 }
 
-void AckermannModel::GoTotarget() {
+int AckermannModel::GoTotarget(double threshold) {
+  std::array<double,3> final_pos = r_.getFinalPos();
+  double dist = sqrt(pow(final_pos[0],2)+pow(final_pos[1],2));
+
+  double curr_right_vel{};
+  double curr_left_vel{};
+  double dt = right_vel_controller_.getDt();
+  double curr_vel{};
+  // dist > threshold
+  int i=0;
+  while(dist > threshold){
+    ComputeWheelAngles();
+    ComputeWheelVelocities();
+    curr_right_vel += right_vel_controller_.ComputeOutput(curr_right_vel,right_wheel_vel_);
+    curr_left_vel += left_vel_controller_.ComputeOutput(curr_left_vel,left_wheel_vel_);
+    curr_vel = r_.getCurrVel();
+    final_pos[0] -= curr_vel*cos(delta_)*dt;
+    final_pos[1] -= curr_vel*sin(delta_)*dt;
+    r_.setFinalPos(final_pos);
+    dist = sqrt(pow(final_pos[0],2)+pow(final_pos[1],2));
 
 
-//   while(curr_pos not in treshold){
-//     computeangles
-//     computewheelvelocities
-//     computeOutputforRightWheel
-//     conputeOutputforleftwheel
-//     updatePosition // Think which one here
-//     print status
-//   }
-  return;
+    std::cout << "Wheel Angles L and R" << left_wheel_angle_<<','<<right_wheel_angle_<<std::endl;
+    std::cout << "Wheel Velocities L and R" << left_wheel_vel_<<','<<right_wheel_vel_<<std::endl;
+    std::cout << "Distance to cover" << dist <<"Steering Angle" << delta_ << std::endl;
+    i++;
+
+
+  }
+
+  std::cout << "Target Reached in "<< i << "steps"<< std::endl;
+  
+  return 1;
 
 }
