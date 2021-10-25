@@ -11,6 +11,7 @@
  * Licensed under the MIT License (the "License")
  *
  */
+
 #pragma once
 #include <iostream>
 #include <Robot.hpp>
@@ -19,19 +20,20 @@
 
 class AckermannModel {
  public:
-  double radius_icc_{}, left_wheel_angle_{}, right_wheel_angle_{},delta_{};
+  double radius_icc_{}, left_wheel_angle_{}, right_wheel_angle_{}, delta_{};
   double left_wheel_vel_{}, right_wheel_vel_{};
   Robot r_;
   Controller right_vel_controller_;
   Controller left_vel_controller_;
 
-    /**
-     * @brief Construct a new AckremannModel object
-     *
-     * @param r (Robot) - object of Robot class
-     * @param target (pos) - target coordinates (x,y,th)
-     */
-  AckermannModel(Robot &r,Controller &right_vel_controller,Controller &left_vel_controller);
+  /**
+   * @brief Construct a new AckremannModel object
+   *
+   * @param r (Robot) - object of Robot class
+   * @param target (pos) - target coordinates (x,y,th)
+   */
+  AckermannModel(Robot &r, Controller &right_vel_controller,
+                 Controller &left_vel_controller);
 
   /**
    * @brief Computing the angle to turn the wheels
@@ -58,7 +60,4 @@ class AckermannModel {
    * @param threshold The maximum distance acceptable between the current location of robot and target
    */
   int GoTotarget(double threshold);
-
 };
-
-

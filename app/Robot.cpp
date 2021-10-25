@@ -20,7 +20,8 @@
 /**
 * @brief Constructs the Robot object with user defined values
 */
-Robot::Robot(double max_acc, double wheel_base, double track_width, double max_heading_angle)
+Robot::Robot(double max_acc, double wheel_base,
+             double track_width, double max_heading_angle)
 : max_acc_(max_acc),
   wheel_base_(wheel_base),
   track_width_(track_width),

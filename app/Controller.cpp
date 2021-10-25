@@ -25,7 +25,7 @@ Controller::Controller(double Kp, double Ki, double Kd, double dt)
   kd_(Kd),
   dt_(dt) {
   std::cout << "Controller initialized with " << "Kp: " << kp_ << " Ki: "
-            << ki_ << " Kd: " << kd_ << " dt: " << dt_<<std::endl;
+            << ki_ << " Kd: " << kd_ << " dt: " << dt_<< std::endl;
 }
 
 /**
