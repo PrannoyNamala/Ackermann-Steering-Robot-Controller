@@ -54,28 +54,28 @@ double Robot::getTrackWidth() {
 /**
 * @brief Get the curr_pos parameter
 */
-std::array<double, 3> Robot::getCurrPos() {
+std::array<double, 2> Robot::getCurrPos() {
   return curr_pos_;
 }
 
 /**
 * @brief Set the curr_pos parameter
 */
-void Robot::setCurrPos(std::array<double, 3> position) {
+void Robot::setCurrPos(std::array<double, 2> position) {
   curr_pos_ = position;
 }
 
 /**
 * @brief Get the final_pos parameter
 */
-std::array<double, 3> Robot::getFinalPos() {
+std::array<double, 2> Robot::getFinalPos() {
   return final_pos_;
 }
 
 /**
 * @brief Set the final_pos parameter
 */
-void Robot::setFinalPos(std::array<double, 3> position) {
+void Robot::setFinalPos(std::array<double, 2> position) {
   final_pos_ = position;
 }
 

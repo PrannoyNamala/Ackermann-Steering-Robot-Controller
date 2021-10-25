@@ -57,7 +57,7 @@ TEST(RobotTest, GettingTrackWidth) {
  * @brief Check for the get current position method
  */
 TEST(RobotTest, GettingCurrentPosition) {
-  std::array<double,3> pos = {0,0,0};
+  std::array<double,2> pos = {0,0};
   ASSERT_EQ(test_robot.getCurrPos(), pos);
 }
 
@@ -65,7 +65,7 @@ TEST(RobotTest, GettingCurrentPosition) {
  * @brief Check for the set current position method
  */
 TEST(RobotTest, SettingCurrentPosition) {
-  std::array<double,3> pos = {1,1,1};
+  std::array<double,2> pos = {1,1};
   test_robot.setCurrPos(pos);
   ASSERT_EQ(test_robot.getCurrPos(), pos);
 }
@@ -89,7 +89,7 @@ TEST(RobotTest, SettingCurrentVelocity) {
  * @brief Check for the get final position method
  */
 TEST(RobotTest, GettingFinalPosition) {
-  std::array<double,3> pos = {1,1,0};
+  std::array<double,2> pos = {1,1};
   ASSERT_EQ(test_robot.getFinalPos(), pos);
 }
 
@@ -97,7 +97,7 @@ TEST(RobotTest, GettingFinalPosition) {
  * @brief Check for the set final position method
  */
 TEST(RobotTest, SettingFinalPosition) {
-  std::array<double,3> pos = {2,2,2};
+  std::array<double,2> pos = {2,2};
   test_robot.setFinalPos(pos);
   ASSERT_EQ(test_robot.getFinalPos(), pos);
 }
@@ -135,7 +135,7 @@ TEST(AckermannModelTest, wheelAngleValidityRight) {
  * @brief Check for the wheel angle of right wheel
  */
 TEST(AckermannModelTest, checkmaxAngle) {
-  test_robot.setFinalPos({1.0,2.0,0.0});
+  test_robot.setFinalPos({1.0,2.0});
   test_model.ComputeWheelAngles();
   ASSERT_GT(test_model.delta_, -0.786);
   ASSERT_LT(test_model.delta_,0.786);
@@ -158,7 +158,7 @@ TEST(AckermannModelTest, checkingInnerAnglevOuterAngle) {
  * @brief Check for the velocity of left wheel
  */
 TEST(AckermannModelTest, validateVelocityLeft) {
-  test_robot.setFinalPos({1,1,0});
+  test_robot.setFinalPos({1,1});
   test_model.r_.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
@@ -169,7 +169,7 @@ TEST(AckermannModelTest, validateVelocityLeft) {
  * @brief Check for the velocity of right wheel
  */
 TEST(AckermannModelTest, validateVelocityRight) {
-  test_robot.setFinalPos({1,1,0});
+  test_robot.setFinalPos({1,1});
   test_model.r_.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
@@ -240,7 +240,7 @@ TEST(ControllerTest, validateComputeOutput) {
 
 TEST(SystemTest, ConvergenceTest) {
   Robot sys_robot(5.0, 0.2, 0.1, 0.785);
-  sys_robot.setFinalPos({5,5,0});
+  sys_robot.setFinalPos({5,5});
   sys_robot.setCurrVel(2);
   Controller right_vel_sys_controller(0.5,0.6,0.7,0.1);
   Controller left_vel_sys_controller(0.5,0.6,0.7,0.1);

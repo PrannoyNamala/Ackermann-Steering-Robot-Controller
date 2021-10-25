@@ -82,10 +82,3 @@ double Controller::getKd() {
 double Controller::getDt() {
   return dt_;
 }
-
-/**
-* @brief Get the threshold parameter
-*/
-double Controller::getThreshold() {
-  return threshold_;
-}

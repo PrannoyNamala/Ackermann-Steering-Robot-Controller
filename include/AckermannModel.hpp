@@ -53,11 +53,9 @@ class AckermannModel {
   void ComputeWheelVelocities();
 
   /**
-   * @brief Computing ve
+   * @brief Computing the inputs for each front wheel. Check for convergence to target
    *
-   * @param left_wheel_angle (double) - pivot angle of the left wheel
-   * @param right_wheel_angle (double) - pivot angle of the right wheel
-   * @param wheel_base (double) - wheel base defined in the Robot class
+   * @param threshold The maximum distance acceptable between the current location of robot and target
    */
   int GoTotarget(double threshold);
 

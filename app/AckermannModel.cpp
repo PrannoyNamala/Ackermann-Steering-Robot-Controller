@@ -35,8 +35,8 @@ void AckermannModel::ComputeWheelAngles() {
   double wheel_base = r_.getWheelBase();
   double track_width = r_.getTrackWidth();
 
-  std::array<double,3> curr_pos = r_.getCurrPos();
-  std::array<double,3> final_pos = r_.getFinalPos();
+  std::array<double,2> curr_pos = r_.getCurrPos();
+  std::array<double,2> final_pos = r_.getFinalPos();
   // std::cout << "Start Pose" << curr_pos[1]<< std::endl;
   // std::cout << "Final Pose" << final_pos[1]<< std::endl;
 
@@ -73,8 +73,11 @@ void AckermannModel::ComputeWheelVelocities() {
   left_wheel_vel_ = curr_vel*sin(left_wheel_angle_)/wheel_base;
 }
 
+/**
+* @brief Computing the inputs for each front wheel. Check for convergence to target
+*/
 int AckermannModel::GoTotarget(double threshold) {
-  std::array<double,3> final_pos = r_.getFinalPos();
+  std::array<double,2> final_pos = r_.getFinalPos();
   double dist = sqrt(pow(final_pos[0],2)+pow(final_pos[1],2));
 
   double curr_right_vel{};
