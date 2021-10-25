@@ -21,9 +21,12 @@
 /**
  * Initializing the class objects
  */
-Robot test_robot(5.0, 0.2, 0.1);
-AckermannModel test_model(test_robot);
-Controller test_controller(0.5,0.6,0.7,0.1, 1);
+Robot test_robot(5.0, 0.2, 0.1, 0.785);
+Controller right_vel_test_controller(0.5,0.6,0.7,0.1);
+Controller left_vel_test_controller(0.5,0.6,0.7,0.1);
+AckermannModel test_model(test_robot, right_vel_test_controller, left_vel_test_controller);
+Controller test_controller(0.5,0.6,0.7,0.1);
+
 
 /**
  * Robot Class Test
@@ -54,7 +57,7 @@ TEST(RobotTest, GettingTrackWidth) {
  * @brief Check for the get current position method
  */
 TEST(RobotTest, GettingCurrentPosition) {
-  std::array<double,3> pos = {0,0,0};
+  std::array<double,2> pos = {0,0};
   ASSERT_EQ(test_robot.getCurrPos(), pos);
 }
 
@@ -62,7 +65,7 @@ TEST(RobotTest, GettingCurrentPosition) {
  * @brief Check for the set current position method
  */
 TEST(RobotTest, SettingCurrentPosition) {
-  std::array<double,3> pos = {1,1,1};
+  std::array<double,2> pos = {1,1};
   test_robot.setCurrPos(pos);
   ASSERT_EQ(test_robot.getCurrPos(), pos);
 }
@@ -86,7 +89,7 @@ TEST(RobotTest, SettingCurrentVelocity) {
  * @brief Check for the get final position method
  */
 TEST(RobotTest, GettingFinalPosition) {
-  std::array<double,3> pos = {0,0,0};
+  std::array<double,2> pos = {1,1};
   ASSERT_EQ(test_robot.getFinalPos(), pos);
 }
 
@@ -94,10 +97,18 @@ TEST(RobotTest, GettingFinalPosition) {
  * @brief Check for the set final position method
  */
 TEST(RobotTest, SettingFinalPosition) {
-  std::array<double,3> pos = {1,1,1};
+  std::array<double,2> pos = {2,2};
   test_robot.setFinalPos(pos);
   ASSERT_EQ(test_robot.getFinalPos(), pos);
 }
+
+/**
+ * @brief Check for the get max heading angle method
+ */
+TEST(RobotTest, getMaxHeadingAngle) {
+  ASSERT_EQ(test_robot.getMaxHeadingAngle(), 0.785);
+}
+
 
 /**
  * Ackermann Model Class Test
@@ -107,35 +118,39 @@ TEST(RobotTest, SettingFinalPosition) {
 /**
  * @brief Check for the bounded angle of left wheel
  */
-TEST(AckermannModelTest, boundedOutputLeftAngle) {
+TEST(AckermannModelTest, wheelAngleValidityLeft) {
   test_model.ComputeWheelAngles();
-  ASSERT_EQ(test_model.left_wheel_angle_,0.785);
+  ASSERT_NEAR(test_model.left_wheel_angle_,0.674,0.01);
 }
 
 /**
  * @brief Check for the bounded angle of right wheel
  */
-TEST(AckermannModelTest, boundedOutputRightAngle) {
+TEST(AckermannModelTest, wheelAngleValidityRight) {
   test_model.ComputeWheelAngles();
-  ASSERT_EQ(test_model.right_wheel_angle_,0.785);
+  ASSERT_NEAR(test_model.right_wheel_angle_,0.927,0.01);
 }
 
 /**
  * @brief Check for the wheel angle of right wheel
  */
-TEST(AckermannModelTest, wheelAngleValidityRight) {
-  test_robot.setFinalPos({1.0,0.0,0.0});
+TEST(AckermannModelTest, checkmaxAngle) {
+  test_robot.setFinalPos({1.0,2.0});
   test_model.ComputeWheelAngles();
-  ASSERT_EQ(test_model.right_wheel_angle_,0);
+  ASSERT_GT(test_model.delta_, -0.786);
+  ASSERT_LT(test_model.delta_,0.786);
 }
 
 /**
  * @brief Check for the wheel angle of left wheel
  */
-TEST(AckermannModelTest, wheelAngleValidityLeft) {
-  test_robot.setFinalPos({1.0,0.0,0.0});
-  test_model.ComputeWheelAngles();
-  ASSERT_EQ(test_model.left_wheel_angle_,0);
+TEST(AckermannModelTest, checkingInnerAnglevOuterAngle) {
+  if (test_model.delta_<0) {
+    ASSERT_TRUE(test_model.left_wheel_angle_>test_model.right_wheel_angle_);
+  }
+  if (test_model.delta_>0) {
+    ASSERT_TRUE(test_model.left_wheel_angle_<test_model.right_wheel_angle_);
+  }
 }
 
 
@@ -143,22 +158,22 @@ TEST(AckermannModelTest, wheelAngleValidityLeft) {
  * @brief Check for the velocity of left wheel
  */
 TEST(AckermannModelTest, validateVelocityLeft) {
-  test_robot.setFinalPos({1,0,0});
-  test_robot.setCurrVel(2);
+  test_robot.setFinalPos({1,1});
+  test_model.r_.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
-  ASSERT_EQ(test_model.left_wheel_vel_,2);
+  ASSERT_NEAR(test_model.left_wheel_vel_,6.24,0.01);
 }
 
 /**
  * @brief Check for the velocity of right wheel
  */
 TEST(AckermannModelTest, validateVelocityRight) {
-  test_robot.setFinalPos({1,0,0});
-  test_robot.setCurrVel(2);
+  test_robot.setFinalPos({1,1});
+  test_model.r_.setCurrVel(2);
   test_model.ComputeWheelAngles();
   test_model.ComputeWheelVelocities();
-  ASSERT_EQ(test_model.right_wheel_vel_,2);
+  ASSERT_NEAR(test_model.right_wheel_vel_,7.99,0.01);
 }
 
 /**
@@ -194,13 +209,6 @@ TEST(ControllerTest, testDt) {
 }
 
 /**
- * @brief Check for the get threshold method
- */
-TEST(ControllerTest, testThreshold) {
-  ASSERT_EQ(test_controller.getThreshold(), 1);
-}
-
-/**
  * @brief Check for the Integral error method
  */
 TEST(ControllerTest, validateIntegralError) {
@@ -218,7 +226,7 @@ TEST(ControllerTest, validateDerivativeError) {
  * @brief Check for the compute output method
  */
 TEST(ControllerTest, validateComputeOutput) {
-  Controller controller(0.5, 0.4, 0.6, 1.0, 1.0);
+  Controller controller(0.5, 0.4, 0.6, 1.0);
 
   double output = controller.ComputeOutput(0, 5);
   ASSERT_NEAR(7.5, output, 0.5);
@@ -228,4 +236,15 @@ TEST(ControllerTest, validateComputeOutput) {
 
   output = controller.ComputeOutput(output, 5);
   ASSERT_NEAR(17.125, output, 0.5);
+}
+
+TEST(SystemTest, ConvergenceTest) {
+  Robot sys_robot(5.0, 0.2, 0.1, 0.785);
+  sys_robot.setFinalPos({5,5});
+  sys_robot.setCurrVel(2);
+  Controller right_vel_sys_controller(0.5,0.6,0.7,0.1);
+  Controller left_vel_sys_controller(0.5,0.6,0.7,0.1);
+  AckermannModel sys_model(sys_robot, right_vel_sys_controller, left_vel_sys_controller);
+
+  ASSERT_TRUE(sys_model.GoTotarget(0.1)==1);
 }

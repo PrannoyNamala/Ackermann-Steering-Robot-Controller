@@ -29,17 +29,23 @@ This project will be completed using AIP with the involvement of 2 programmers u
 
 [Proposal Phase-1 Update](https://drive.google.com/file/d/1YsaQfGZgOE7c7Dwa6bHzNXLxi3fZrg2r/view)
 
+[Proposal Phase-2 Update](https://drive.google.com/file/d/1H7cM33AkOMfr0ANB2vwNEoRtOkwhLxyO/view?usp=sharing)
+
 [Quad Chart Phase-0](https://drive.google.com/file/d/1-h-sLWbmNeX7z31qwRXdcSlXcgGUWfXG/view?usp=sharing)
 
 [UML Diagram](https://drive.google.com/file/d/1Zu3fTrS95gYpkMdT5xp2CJ424eM1xON7/view?usp=sharing)
 
 [UML Diagram Phase 1](https://drive.google.com/file/d/183aDx3iQR4v4fukx3KLp-rI0bn9yGZ4i/view?usp=sharing)
 
-[Google Doc Link forDesign and Planning notes](https://docs.google.com/document/d/17IL55ZwxBDhujGnLBym4Dkk1ct6glk5DNWoQ6naqwEU/edit?usp=sharing)
+[UML Diagram Phase 2](https://drive.google.com/file/d/1sYCCHkBEKD8TA1m3nXA8TqwH6car5CTh/view?usp=sharing)
+
+[Google Doc Link forDesign and Planning notes(Updated with notes for phase 2)](https://docs.google.com/document/d/17IL55ZwxBDhujGnLBym4Dkk1ct6glk5DNWoQ6naqwEU/edit?usp=sharing)
 
 [ Youtube link to the Proposal](https://youtu.be/cgePebQyXTI)
 
 [ Youtube link to the Phase 1](https://youtu.be/n60_Hbyo3_k)
+
+[ Youtube link to the Phase 2](https://youtu.be/ieRox915Phw)
 
 ## Standard install via command-line
 ```

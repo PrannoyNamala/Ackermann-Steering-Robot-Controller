@@ -20,10 +20,12 @@
 /**
 * @brief Constructs the Robot object with user defined values
 */
-Robot::Robot(double max_acc, double wheel_base, double track_width)
+Robot::Robot(double max_acc, double wheel_base,
+             double track_width, double max_heading_angle)
 : max_acc_(max_acc),
   wheel_base_(wheel_base),
-  track_width_(track_width) {
+  track_width_(track_width),
+  max_heading_angle_(max_heading_angle) {
   std::cout << "Robot Initialized with Maximum Acceleration:" << max_acc
       << "m/s^2, Wheel Base:" << wheel_base << "m, Track Width:"
       << track_width << "m" << std::endl;
@@ -53,28 +55,28 @@ double Robot::getTrackWidth() {
 /**
 * @brief Get the curr_pos parameter
 */
-std::array<double, 3> Robot::getCurrPos() {
+std::array<double, 2> Robot::getCurrPos() {
   return curr_pos_;
 }
 
 /**
 * @brief Set the curr_pos parameter
 */
-void Robot::setCurrPos(std::array<double, 3> position) {
+void Robot::setCurrPos(std::array<double, 2> position) {
   curr_pos_ = position;
 }
 
 /**
 * @brief Get the final_pos parameter
 */
-std::array<double, 3> Robot::getFinalPos() {
+std::array<double, 2> Robot::getFinalPos() {
   return final_pos_;
 }
 
 /**
 * @brief Set the final_pos parameter
 */
-void Robot::setFinalPos(std::array<double, 3> position) {
+void Robot::setFinalPos(std::array<double, 2> position) {
   final_pos_ = position;
 }
 
@@ -91,3 +93,11 @@ void Robot::setCurrVel(double velocity) {
 double Robot::getCurrVel() {
   return curr_vel_;
 }
+
+/**
+* @brief get the maximum pivot angle parameter
+*/
+double Robot::getMaxHeadingAngle() {
+  return max_heading_angle_;
+}
+

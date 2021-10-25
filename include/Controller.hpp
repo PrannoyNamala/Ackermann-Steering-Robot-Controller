@@ -11,6 +11,7 @@
  * Licensed under the MIT License (the "License")
  *
  */
+
 #pragma once
 #include <iostream>
 
@@ -23,9 +24,8 @@ class Controller {
      * @param Ki (double) - Integral constant
      * @param Kd (double) - Derivative constant
      * @param dt (double) - time
-     * @param threshold (double) - allowed error
      */
-    Controller(double Kp, double Ki, double Kd, double dt, double threshold);
+    Controller(double Kp, double Ki, double Kd, double dt);
     /**
      * @brief Calculates the error integral
      * 
@@ -83,6 +83,6 @@ class Controller {
     double getThreshold();
 
  private:
-    double kp_, ki_, kd_, dt_, threshold_;
+    double kp_, ki_, kd_, dt_;
     double previous_error_ {}, integral_sum_{};
 };
