@@ -106,7 +106,7 @@ TEST(RobotTest, SettingFinalPosition) {
  * @brief Check for the get max heading angle method
  */
 TEST(RobotTest, getMaxHeadingAngle) {
-  ASSERT_EQ(test_robot.getCurrVel(), 0.785);
+  ASSERT_EQ(test_robot.getMaxHeadingAngle(), 0.785);
 }
 
 
